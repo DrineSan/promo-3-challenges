@@ -1,36 +1,38 @@
 class Player_moving
-  Grid_POSITIONS = (1..100).to_a
-  
-def initialize ( position ) 
-  @position = position ; @iterations = 0; 
-raise "Initial position must be between 1 and 100" unless Grid_POSITIONS.include? @position
-  end
-  
-      def move   distanceInMeters
-@position += distanceInMeters
-  end
-  
+  grid_positions = (1..100).to_a
+
+def initialize(position)
+  position = grid_positions[0];
+  raise "Initial position must be between 1 and 100" unless grid_positions.include?(position)
+end
+
+def move(distance_in_meters)
+  position += distance_in_meters
+end
+
 def play
-  if(  self.status_Player==:play   ) 
-if rand(1..100) < 50 ; move(rand(1..10))
+  if self_status_player == play
+  && rand(1..100) < 50 move(rand(1..10))
   else
         move(-rand(1..10))
-end
+  end
   end
 end
 
-def cheat; @position = 101; end
-  
-def status_Player
-    if( @position >   100 )
-      :win 
-    elsif(@position<0) ; :loose
-    else;  :play
-    end
+def cheat(position)
+  position[101]
+end
+
+def status_player
+    if position > 100 puts "win"
+    elsif position < 0) puts "loose"
+    else puts "play"
+end
+
+def has_won
+  status_player  == win
   end
-  
-  def hasWon ; status_Player  == :win ; end
-    
+
 end
 
 player = Player_moving.new(50)
@@ -38,7 +40,7 @@ player.play
 puts player.status_Player == :play # true
 player.cheat
 puts player.hasWon == true
-  
+
 begin
   Player_moving.new(110)
 rescue RuntimeError => e
