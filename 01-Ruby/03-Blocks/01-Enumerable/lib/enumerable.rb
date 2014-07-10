@@ -37,6 +37,7 @@ end
 def product(array)
   # TODO: Calculate the product of an array of numbers.
   #       You should use of Enumerable#reduce
+  array.reduce(:*)
 end
 
 def sorted_pairs(array)
