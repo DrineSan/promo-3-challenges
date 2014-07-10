@@ -31,6 +31,7 @@ end
 def add_bang(array)
   # TODO: Take an array of strings and return a new array with "!" appended to each string.
   #       You should use Enumerable#map
+  array.map! { |element| element + "!" }
 end
 
 def product(array)
