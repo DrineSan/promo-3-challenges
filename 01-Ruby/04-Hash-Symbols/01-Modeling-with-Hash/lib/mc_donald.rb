@@ -23,5 +23,5 @@ end
 
 def calories_counter(*orders)
   #TODO: return number of calories for a less constrained order
-  #orders[order]
+  orders[order]
 end
