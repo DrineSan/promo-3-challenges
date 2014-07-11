@@ -10,4 +10,6 @@ until answer == "I am going to work right now SIR !"
   answer = gets.chomp
 end
 
-
+if your_message.include?('!')
+  puts coach_answer_enhanced
+end
