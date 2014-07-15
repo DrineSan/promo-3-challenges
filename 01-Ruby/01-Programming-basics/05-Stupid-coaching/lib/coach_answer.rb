@@ -6,10 +6,13 @@ def coach_answer(sentence)
     ""
   else
     "I don't care son, get dressed and go to work !"
+  end
 end
 
 def coach_answer_enhanced(your_message)
   # TODO: return coach answer to your_message, with additional custom rules of yours !
-  if your_message.include?('!') puts "I can feel your motivation."
+  if your_message.include?('!')
+    puts "I can feel your motivation."
+  end
 end
 
