@@ -27,25 +27,33 @@ class BankAccount
   def withdraw(amount)
     # TODO: Call add_transaction with the right argument
     # TODO: returns a string with a message
+    add_transaction(amount)
+    "You have withdrawn #{amount} euros. The current position of your account is #{current_position} euros. "
   end
 
   def deposit(amount)
     # TODO: Call add_transaction with the right argument
     # TODO: returns a string with a message
+    add_transaction(-amount)
+    "The amount of your deposit is #{amount}. The current osition of your account is #{current_position} euros. "
   end
 
   def transactions_history(args = {})
     # TODO: Check if there is a password and if so if it is correct
     # TODO: return a string displaying the transactions, BUT NOT return the transaction array !
+   args[@password]? == @password
+   "#{@transactions}"
   end
 
   def iban
     # TODO: Hide the middle of the IBAN like FR14**************606 and return it
+    return "#{@iban[0..3]}**************#{@iban.to_a.last(3)}"
   end
 
   def to_s
     # Method used when printing account object as string (also used for string interpolation)
     # TODO: Displays the account owner, the hidden iban and the position of the account
+    puts "#{@name} - #{@iban} - #{@position} euros."
   end
 
   private
@@ -53,6 +61,8 @@ class BankAccount
   def add_transaction(amount)
     # TODO: add the amount in the transactions array
     # TODO: update the current position (which represents the balance of the account)
+    @transaction << amount
+    @position = @position - amount
   end
 
 end
