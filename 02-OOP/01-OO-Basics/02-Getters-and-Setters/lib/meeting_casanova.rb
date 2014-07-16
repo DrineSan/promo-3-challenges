@@ -1,6 +1,7 @@
 require_relative "playboy"
 
 casanova = Playboy.new("Giacomo Casanova", "Italian")
+casanova.married = true
 puts casanova.nationality
 
 casanova.meets("Giullia")
