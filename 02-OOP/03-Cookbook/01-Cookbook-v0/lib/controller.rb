@@ -1,9 +1,12 @@
-require_relative 'cookbook'
-
 class Controller
-  def initialize(file)
-    # Here you should instantiate the Cookbook model with the file
+
+  def initialize
+    @cookbook_repository = Cook_Repository.new
+    @display = Display.new
   end
 
-  # TODO: Implement the methods to retrieve, add, and delete recipes through the model
+  def fetch_and_print_display
+      @display.print_recipes(@csv_tempo)
+    end
+
 end
