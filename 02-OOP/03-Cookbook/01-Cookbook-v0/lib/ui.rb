@@ -1,22 +1,23 @@
 class Display
-  def print_recipes(csv_tempo)
-    csv_tempo.each_with_index do |index, recipe|
-      puts "#{index + 1} - #{recipe}"
+
+  def puts_recipes(recipes)
+    recipes.each_with_index do |element, index|
+      puts "#{index+1}. #{element.name}: #{element.description}"
     end
   end
 
-  def get_new_recipe
+  def add_recipe
     puts "Which recipe would you like to add?"
-    recipe_added = gets.chomp
+    recipe_name = gets.chomp
+    puts "Please describe your recipe:"
+    recipe_description = gets.chomp
+    return [recipe_name, recipe_description]
   end
 
-  def delete_a_recipe
-    puts "Which recipe would you like to delete?"
-    deleted_recipe = gets.chomp
-  end
-
-  def exit
-    puts "Googbye!"
+  def delete_recipe
+    puts "Please provide the number of the recipe you would like to delete."
+    number = gets.chomp.to_i
+    return number - 1
   end
 
 end
