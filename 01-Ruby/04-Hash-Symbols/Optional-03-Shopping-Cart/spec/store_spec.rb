@@ -70,7 +70,7 @@ describe 'store_items_to_s method' do
 
     products.each_with_index do |p, idx|
       if PRODUCTS.include?(p.downcase)
-        prices[idx].must_equal(PRICES[PRODUCTS.index(p)])
+        prices[idx].must_equal(PRICES[PRODUCTS.index(p.downcase)])
       end
     end
 
