@@ -13,7 +13,8 @@ def create_post
   rating = ask('Rating:')
   date = Time.now
 
-  DB.execute("INSERT INTO posts(name, source_url, created_at, rating) VALUES ('#{name}', '#{source_url}', '#{date}', '#{rating}') ")
+  DB.execute("INSERT INTO posts (name, source_url, created_at, rating)
+              VALUES ('#{name}', '#{source_url}', '#{date.strftime('%Y-%m-%d %H:%M:%S')}', #{rating})")
 end
 
 def get_posts
