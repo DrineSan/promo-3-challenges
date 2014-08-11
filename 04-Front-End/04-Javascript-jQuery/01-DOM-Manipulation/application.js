@@ -35,11 +35,14 @@ function run_challenges() {
   var newteam = $('tbody').append('<tr><td>15</td><td>New team</td><td>0</td></tr>');
 
   // Ex 7. Write some code to sum all points given to all teams
-  // var sum = $('th').each(function(index, element) {
-  //   sum += parseInt($(element).find('td:last').text());
-  // });;
   // TODO: replace 0 with your sum result, keep the sum variable.
+
   var sum = 0;
+
+  $('td:last-child').each(function (index, element) {
+    sum += parseInt($(element).text(), 10);
+  });
+
 
 
   // Ex 8. Change the background color of all table header cells to #DDF4FF
@@ -47,9 +50,12 @@ function run_challenges() {
   var backgroundcolor = $('th').css("background-color", "#DDF4FF");
 
 
-  // Ex 9. Translate the #results list 20px downward (animation would be great ^_^)
+  // Ex 9. Move the #results list 20px downward (animation would be great ^_^)
 
-  var results = $()
+  var results = $('#results').css({ 'position': 'relative', 'top': '20px' });
+
+  // Result exo 9 with animation:
+  // var results = $('#results').css({ 'position': 'relative' }).animate({ 'top': '+=20px' }, 2000);
 
   // Ex 10. Remove the "Email:" label from the DOM
 
@@ -69,3 +75,4 @@ function run_challenges() {
     assert_equal(document.getElementsByTagName('label').length, 0);
   }, 1000);
 }
+
